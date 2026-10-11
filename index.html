@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>技术速查手册 · Dev Cheatsheet</title>
+<meta name="description" content="一页式的开发者技术速查手册：Git、Shell、HTTP、JavaScript、Python、SQL、Docker、正则表达式与 VS Code 快捷键，支持全文检索与一键复制。">
+<meta name="color-scheme" content="dark light">
+<meta property="og:title" content="技术速查手册 · Dev Cheatsheet">
+<meta property="og:description" content="Git / Shell / HTTP / JS / Python / SQL / Docker / 正则 / VS Code 快捷键速查，支持全文检索与一键复制。">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%236366f1'/%3E%3Ctext x='50' y='68' font-size='54' text-anchor='middle' fill='white' font-family='monospace'%3E%7B%7D%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip-link" href="#content">跳到正文</a>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">{&nbsp;}</span>
+      <span class="brand-text">
+        <strong>技术速查手册</strong>
+        <small>Dev Cheatsheet</small>
+      </span>
+    </a>
+
+    <div class="search" role="search">
+      <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+      <input id="search" type="search" placeholder="搜索命令、关键字…  按 / 聚焦" autocomplete="off" spellcheck="false" aria-label="搜索速查内容">
+      <button id="clearSearch" class="search-clear" type="button" hidden aria-label="清空搜索">✕</button>
+      <kbd class="search-hint">/</kbd>
+    </div>
+
+    <button id="themeToggle" class="icon-btn" type="button" aria-label="切换主题" title="切换深色 / 浅色">
+      <svg class="ico-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.4v2.4M12 19.2v2.4M2.4 12h2.4M19.2 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/></svg>
+      <svg class="ico-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8.4 8.4 0 1 1 9.8 4a6.8 6.8 0 0 0 10.2 10.2z"/></svg>
+    </button>
+  </div>
+  <div class="progress-line"><span id="scrollProgress"></span></div>
+</header>
+
+<div class="layout" id="top">
+  <aside class="sidebar" id="sidebar" aria-label="目录">
+    <p class="sidebar-title">目录</p>
+    <nav id="toc" class="toc"></nav>
+    <div class="sidebar-foot">
+      <p><kbd>Ctrl</kbd>+<kbd>K</kbd> 聚焦搜索 · <kbd>Esc</kbd> 清空</p>
+    </div>
+  </aside>
+
+  <main class="content" id="content">
+    <section class="hero">
+      <h1>一页收好常用的开发速查表</h1>
+      <p class="hero-sub">Git、Shell、HTTP、JavaScript、Python、SQL、Docker、正则表达式、VS Code 快捷键 —— 共 <strong id="statItems">0</strong> 条，全部支持检索与一键复制。</p>
+      <div class="hero-chips" id="heroChips"></div>
+    </section>
+
+    <div class="result-bar" id="resultBar" hidden>
+      <span id="resultText"></span>
+      <button id="resetFilter" class="link-btn" type="button">清除筛选</button>
+    </div>
+
+    <div id="sections"></div>
+
+    <p class="empty-state" id="emptyState" hidden>
+      <span class="empty-emoji">🔍</span>
+      没有匹配「<strong id="emptyQuery"></strong>」的条目，换个关键字试试。
+    </p>
+
+    <footer class="foot">
+      <p>技术速查手册 · 纯静态单页，无框架无构建。</p>
+      <p class="foot-dim">内容为日常开发经验整理，命令请在理解含义后再执行，尤其注意删除与强制覆盖类操作。</p>
+    </footer>
+  </main>
+</div>
+
+<button id="toTop" class="to-top" type="button" hidden aria-label="回到顶部">↑</button>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
